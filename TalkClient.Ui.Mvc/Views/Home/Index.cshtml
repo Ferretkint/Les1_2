@@ -1,0 +1,21 @@
+﻿@model ChatViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (Model.Channels is not null)
+{
+    @foreach (var channel in Model.Channels)
+    {
+        <h1><a asp-action="Index" asp-route-channel="@channel.Name">@channel.Name</a></h1>
+    }
+}
+
+@if (Model.Messages is not null)
+{
+    @foreach (var message in Model.Messages)
+    {
+        <div class="card">@message.Message</div>
+    }
+}
